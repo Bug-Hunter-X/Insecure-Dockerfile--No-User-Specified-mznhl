@@ -1,0 +1,15 @@
+FROM node:16
+
+RUN groupadd -r my-group && useradd -r -g my-group -ms /bin/bash my-user
+
+WORKDIR /app
+
+COPY package*.json .
+
+RUN npm install
+
+COPY . .
+
+USER my-user
+
+CMD ["node", "index.js"]
