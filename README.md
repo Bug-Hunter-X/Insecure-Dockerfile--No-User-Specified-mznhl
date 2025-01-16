@@ -1,0 +1,1 @@
+This repository demonstrates a common security vulnerability in Dockerfiles: running the container as root.  The original Dockerfile omits the `USER` instruction. The fixed version explicitly sets a non-root user.  This prevents potential privilege escalation if a vulnerability is exploited within the container. Always specify a non-root user in production Dockerfiles.
